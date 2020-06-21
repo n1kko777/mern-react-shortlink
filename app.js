@@ -1,5 +1,5 @@
+require('dotenv').config();
 const express = require("express");
-const config = require("config");
 const mongoose = require("mongoose");
 const path = require("path");
 
@@ -17,11 +17,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = config.get("port") || 5000;
+const PORT = process.env.port || 5000;
 
 async function start() {
   try {
-    await mongoose.connect(config.get("mongoUrl"), {
+    await mongoose.connect(process.env.mongoUrl, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

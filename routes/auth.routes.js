@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const bcrypt = require("bcryptjs");
-const config = require("config");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
@@ -84,7 +83,7 @@ router.post(
           .json({ message: "Неверный пароль, попробуйте снова" });
       }
 
-      const token = jwt.sign({ userId: user.id }, config.get("jwtSecret"), {
+      const token = jwt.sign({ userId: user.id }, process.env.jwtSecret, {
         expiresIn: "1h",
       });
 
