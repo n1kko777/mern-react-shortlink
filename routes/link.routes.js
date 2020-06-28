@@ -52,4 +52,13 @@ router.get("/:id", auth, async (req, res) => {
   }
 });
 
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    await Link.findByIdAndRemove(req.params.id);
+    res.status(204).json({ message: "Ссылка удалена" });
+  } catch (e) {
+    res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
+  }
+});
+
 module.exports = router;

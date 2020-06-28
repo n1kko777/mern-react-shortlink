@@ -17,7 +17,7 @@ const App = () => {
   }
   return (
     <AuthContext.Provider value={{ login, logout, token, userId, isAuth }}>
-      <Router>
+      <Router forceRefresh={true}>
         {isAuth && <Navbar />}
         <div className="container mt-40">{routes}</div>
       </Router>
