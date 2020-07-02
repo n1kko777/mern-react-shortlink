@@ -1,6 +1,10 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export const useHttp = () => {
+  const history = useHistory();
+  const auth = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -18,6 +22,11 @@ export const useHttp = () => {
           headers,
         });
 
+        if (res.status === 401) {
+          auth.logout();
+          history.push("/");
+        }
+
         const data = await res.json();
 
         if (!res.ok) {
@@ -32,7 +41,7 @@ export const useHttp = () => {
         throw error;
       }
     },
-    []
+    [auth, history]
   );
 
   const clearError = useCallback(() => setError(null), []);
