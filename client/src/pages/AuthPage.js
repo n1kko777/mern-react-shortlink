@@ -42,7 +42,7 @@ export const AuthPage = () => {
 
   return (
     <div className="row">
-      <div className="col s6 offset-s3">
+      <div className="col s12 m8 l6 offset-l3 offset-m2">
         <h1>Сократи ссылку</h1>
         <div className="card blue darken-1">
           <div className="card-content white-text">

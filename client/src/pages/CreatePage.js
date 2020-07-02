@@ -34,7 +34,7 @@ export const CreatePage = () => {
 
   return (
     <div className="row">
-      <div className="col s8 offset-s2 mt-40 ">
+      <div className="col s12 l8 offset-l2 mt-40">
         <div className="input-field">
           <input
             placeholder="Вставьте ссылку"
