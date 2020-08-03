@@ -22,18 +22,8 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "plugin:flowtype/recommended"
-    ],
-    "plugins": [
-      "flowtype"
-    ],
-    "rules": {
-      "flowtype/require-valid-file-annotation": [
-        2,
-        "always"
-      ]
-    }
+      "react-app"
+    ]
   },
   "proxy": "http://localhost:5000/",
   "browserslist": {
@@ -47,9 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint-plugin-flowtype": "^5.2.0",
-    "flow-bin": "^0.130.0"
   }
 }
