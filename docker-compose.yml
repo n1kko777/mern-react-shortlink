@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  sl-n1kko777-dev:
+    container_name: sl-n1kko777-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - 5000
+    env_file: .env
+    restart: unless-stopped
+
+  sl-n1kko777-dev-nginx:
+    container_name: sl-n1kko777-dev-nginx
+    build: ./nginx
+    restart: always
+    environment:
+      - VIRTUAL_HOST=sl.n1kko777-dev.ru
+      - LETSENCRYPT_HOST=sl.n1kko777-dev.ru
+      - LETSENCRYPT_EMAIL= webmaster@n1kko777-dev.ru
+    depends_on:
+      - sl-n1kko777-dev
+    ports:
+      - "80:80"
+
+networks:
+  default:
+    external:
+      name: proxy-bypass

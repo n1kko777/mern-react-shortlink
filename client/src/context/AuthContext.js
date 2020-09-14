@@ -1,14 +1,7 @@
 /* @flow */
 import { createContext } from "react";
-type AuthType = {|
-  token: string | null,
-  userId: string | null,
-  login: Function,
-  logout: Function,
-  isAuth: boolean,
-|};
 
-const initialState: AuthType = {
+const initialState = {
   token: null,
   userId: null,
   login: () => {},
@@ -16,4 +9,4 @@ const initialState: AuthType = {
   isAuth: false,
 };
 
-export const AuthContext = createContext<Function>(initialState);
+export const AuthContext = createContext(initialState);
