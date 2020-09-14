@@ -21,8 +21,6 @@ services:
       - LETSENCRYPT_EMAIL= webmaster@n1kko777-dev.ru
     depends_on:
       - sl-n1kko777-dev
-    ports:
-      - "80:80"
 
 networks:
   default:
