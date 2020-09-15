@@ -1,4 +1,4 @@
-FROM node:10.15.0 as build
+FROM node:alpine as build
 
 RUN npm install -g cross-env
 
